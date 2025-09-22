@@ -34,7 +34,7 @@ const Hero = () => {
               </span>
             </h1>
             <h2 className="text-2xl md:text-3xl text-muted-foreground mb-8">
-              Full Stack Developer & UI/UX Designer
+              Full Stack Developer
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Passionate about creating beautiful, functional web applications that solve real-world problems. 
@@ -49,9 +49,22 @@ const Hero = () => {
                 <ArrowDown size={20} />
               </a>
             </Button>
-            <Button variant="outline" size="lg" className="px-8 py-3 border-2 hover:bg-muted/50 transition-all duration-300">
-              <Download size={20} className="mr-2" />
-              Download CV
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="px-8 py-3 border-2 hover:bg-muted/50 transition-all duration-300"
+              asChild
+            >
+              <a 
+                href="/cv/Hoang_Trong_Tra_CV.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                download="Hoang_Trong_Tra_CV.pdf"
+                className="flex items-center gap-2"
+              >
+                <Download size={20} />
+                Download CV
+              </a>
             </Button>
           </div>
 

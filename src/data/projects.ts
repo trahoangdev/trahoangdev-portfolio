@@ -137,15 +137,15 @@ export const projectDetails: ProjectDetail[] = [
     title: 'Portfolio Website',
     shortDescription: 'A responsive portfolio website built with React.js and Tailwind CSS, featuring dark mode and animations.',
     longDescription: 'A modern, responsive portfolio website showcasing my work and skills. Built with React, TypeScript, and Tailwind CSS, it features a sophisticated theme system, smooth animations, and optimized performance. The site includes interactive project showcases, contact forms, and a mobile-first design approach.',
-    image: '/src/assets/images/project-4.jpg',
+    image: '/src/assets/images/project-4.png',
     screenshots: [
-      '/src/assets/images/project-4.jpg',
-      '/src/assets/images/project-1.jpg'
+      '/src/assets/images/project-4.png',
+      '/src/assets/images/project-1.png'
     ],
     technologies: ['React.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite', 'shadcn/ui'],
     category: 'frontend',
     github: 'https://github.com/trahoangdev/trahoangdev-portfolio',
-    live: 'https://trahoangdev.com',
+    live: 'https://trahoangdev-portfolio.netlify.app/',
     features: [
       'Responsive design for all devices',
       'Dark/Light/System theme modes',
