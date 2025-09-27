@@ -1,48 +1,91 @@
 import * as React from "react"
-import * as AvatarPrimitive from "@radix-ui/react-avatar"
-
 import { cn } from "@/lib/utils"
 
-const Avatar = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <AvatarPrimitive.Root
-    ref={ref}
-    className={cn(
-      "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",
-      className
-    )}
-    {...props}
-  />
-))
-Avatar.displayName = AvatarPrimitive.Root.displayName
+interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
+  src?: string
+  alt?: string
+  size?: "sm" | "md" | "lg" | "xl" | "2xl"
+  fallback?: string
+  className?: string
+}
 
-const AvatarImage = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Image>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
->(({ className, ...props }, ref) => (
-  <AvatarPrimitive.Image
-    ref={ref}
-    className={cn("aspect-square h-full w-full", className)}
-    {...props}
-  />
-))
-AvatarImage.displayName = AvatarPrimitive.Image.displayName
+const sizeClasses = {
+  sm: "w-8 h-8",
+  md: "w-12 h-12", 
+  lg: "w-16 h-16",
+  xl: "w-24 h-24",
+  "2xl": "w-32 h-32"
+}
 
-const AvatarFallback = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Fallback>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
->(({ className, ...props }, ref) => (
-  <AvatarPrimitive.Fallback
-    ref={ref}
-    className={cn(
-      "flex h-full w-full items-center justify-center rounded-full bg-muted",
-      className
-    )}
-    {...props}
-  />
-))
-AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName
+const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
+  ({ src, alt = "Avatar", size = "2xl", fallback, className, ...props }, ref) => {
+    const [imageError, setImageError] = React.useState(false)
+    
+    const handleImageError = () => {
+      setImageError(true)
+    }
 
-export { Avatar, AvatarImage, AvatarFallback }
+    return (
+      <div className="relative inline-block">
+        <div
+          ref={ref}
+          className={cn(
+            "relative inline-flex items-center justify-center rounded-full overflow-hidden bg-gradient-to-br from-blue-500 to-purple-600 text-white font-semibold shadow-lg",
+            "transition-all duration-300 ease-in-out",
+            "hover:shadow-xl hover:shadow-blue-500/25",
+            sizeClasses[size],
+            className
+          )}
+          {...props}
+        >
+          {src && !imageError ? (
+            <img
+              src={src}
+              alt={alt}
+              className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              onError={handleImageError}
+            />
+          ) : (
+            <div className="flex items-center justify-center w-full h-full">
+              {fallback ? (
+                <span className="text-sm font-bold">
+                  {fallback}
+                </span>
+              ) : (
+                <svg
+                  className="w-1/2 h-1/2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              )}
+            </div>
+          )}
+        </div>
+        
+        {/* Online Status Indicator */}
+        <div className="absolute -bottom-1 -right-1">
+          <div className="relative">
+            {/* Outer pulsing ring */}
+            <div className="absolute inset-0 w-4 h-4 bg-green-400 rounded-full animate-ping opacity-75"></div>
+            {/* Inner solid dot */}
+            <div className="relative w-4 h-4 bg-green-500 rounded-full border-2 border-white shadow-sm"></div>
+          </div>
+        </div>
+        
+        {/* Subtle glow effect */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-green-400/20 to-blue-400/20 blur-xl opacity-0 hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+      </div>
+    )
+  }
+)
+
+Avatar.displayName = "Avatar"
+
+export { Avatar }

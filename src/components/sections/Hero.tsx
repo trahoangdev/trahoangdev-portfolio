@@ -1,6 +1,7 @@
 
 import { ArrowDown, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Avatar } from '@/components/ui/avatar';
 import { useCurrentTheme } from '@/hooks/use-theme';
 
 const Hero = () => {
@@ -28,9 +29,20 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           <div className="mb-8 animate-fade-in">
+            {/* Avatar */}
+            <div className="flex justify-center mb-8">
+              <Avatar
+                src="/avatar.png"
+                alt="Tra Hoang Trong"
+                size="2xl"
+                fallback="HT"
+                className="ring-4 ring-white/20 shadow-2xl hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                Hoang Trong Tra
+                Tra Hoang Trong 
               </span>
             </h1>
             <h2 className="text-2xl md:text-3xl text-muted-foreground mb-8">
