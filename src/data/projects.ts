@@ -6,11 +6,11 @@ export const projectDetails: ProjectDetail[] = [
     title: 'E-Commerce Platform',
     shortDescription: 'A full-stack e-commerce platform with React, Node.js, and Stripe integration.',
     longDescription: 'This comprehensive e-commerce platform was built from scratch to provide a complete online shopping experience. The platform features a modern, responsive design with advanced functionality including real-time inventory management, secure payment processing, and comprehensive admin dashboard. The system handles thousands of concurrent users and processes thousands of orders daily with high reliability and performance.',
-    image: '/src/assets/images/project-1.jpg',
+    image: '/images/project-1.png',
     screenshots: [
-      '/src/assets/images/project-1.jpg',
-      '/src/assets/images/project-2.jpg',
-      '/src/assets/images/project-3.jpg'
+      '/images/project-1.png',
+      '/images/project-2.jpg',
+      '/images/project-3.png'
     ],
     technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'AWS', 'Redis', 'Docker', 'TypeScript'],
     category: 'fullstack',
@@ -50,11 +50,11 @@ export const projectDetails: ProjectDetail[] = [
     title: 'Task Management App',
     shortDescription: 'A collaborative task management application with real-time updates and drag-and-drop functionality.',
     longDescription: 'A modern task management application designed for teams to collaborate effectively. The app features real-time synchronization, intuitive drag-and-drop interface, and comprehensive project tracking capabilities. Built with Vue.js and real-time WebSocket connections, it provides instant updates across all connected clients.',
-    image: '/src/assets/images/project-2.jpg',
+    image: '/images/project-2.jpg',
     screenshots: [
-      '/src/assets/images/project-2.jpg',
-      '/src/assets/images/project-3.jpg',
-      '/src/assets/images/project-4.jpg'
+      '/images/project-2.jpg',
+      '/images/project-3.png',
+      '/images/project-4.png'
     ],
     technologies: ['Vue.js', 'Express', 'Socket.io', 'MongoDB', 'Vuetify', 'JWT'],
     category: 'frontend',
@@ -94,10 +94,10 @@ export const projectDetails: ProjectDetail[] = [
     title: 'Weather Analytics API',
     shortDescription: 'RESTful API service that aggregates weather data from multiple sources with analytics insights.',
     longDescription: 'A high-performance RESTful API service that aggregates weather data from multiple sources and provides comprehensive analytics insights. The system processes millions of data points daily and serves thousands of API requests with sub-second response times. Features include intelligent caching, rate limiting, and comprehensive data visualization endpoints.',
-    image: '/src/assets/images/project-3.jpg',
+    image: '/images/project-3.png',
     screenshots: [
-      '/src/assets/images/project-3.jpg',
-      '/src/assets/images/project-4.jpg'
+      '/images/project-3.png',
+      '/images/project-4.png'
     ],
     technologies: ['Python', 'FastAPI', 'Redis', 'Docker', 'PostgreSQL', 'Celery', 'Prometheus'],
     category: 'backend',
@@ -137,10 +137,10 @@ export const projectDetails: ProjectDetail[] = [
     title: 'Portfolio Website',
     shortDescription: 'A responsive portfolio website built with React.js and Tailwind CSS, featuring dark mode and animations.',
     longDescription: 'A modern, responsive portfolio website showcasing my work and skills. Built with React, TypeScript, and Tailwind CSS, it features a sophisticated theme system, smooth animations, and optimized performance. The site includes interactive project showcases, contact forms, and a mobile-first design approach.',
-    image: '/src/assets/images/project-4.png',
+    image: '/images/project-4.png',
     screenshots: [
-      '/src/assets/images/project-4.png',
-      '/src/assets/images/project-1.png'
+      '/images/project-4.png',
+      '/images/project-1.png'
     ],
     technologies: ['React.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite', 'shadcn/ui'],
     category: 'frontend',
