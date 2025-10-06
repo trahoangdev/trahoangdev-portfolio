@@ -226,7 +226,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 - **Website**: [trahoangdev](https://trahoangdev.com) 
-- **Email**: contact@trahoangdev
+- **Email**: trahoangdev@gmail.com
 - **GitHub**: [@hoangtrongtra-dev](https://github.com/trahoangdev)
 - **LinkedIn**: [trahoangdev](https://linkedin.com/in/trahoangdev)
 

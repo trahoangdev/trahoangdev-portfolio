@@ -34,14 +34,14 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'contact@trahoangdev',
-      href: 'mailto:contact@trahoangdev'
+      value: 'trahoangdev@gmail.com',
+      href: 'mailto:trahoangdev@gmail.com'
     },
     {
       icon: Phone,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567'
+      value: '(+84) 123 456 789',
+      href: 'tel:+84906888888'
     },
     {
       icon: MapPin,

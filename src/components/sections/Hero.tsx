@@ -3,9 +3,44 @@ import { ArrowDown, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar } from '@/components/ui/avatar';
 import { useCurrentTheme } from '@/hooks/use-theme';
+import { useState, useEffect } from 'react';
 
 const Hero = () => {
   const currentTheme = useCurrentTheme();
+  const [displayedText, setDisplayedText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const texts = [
+      'Full Stack Developer',
+      'React Specialist',
+      'TypeScript Expert',
+      'UI/UX Enthusiast',
+      'Problem Solver'
+    ];
+    
+    const currentText = texts[currentIndex];
+    
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        if (displayedText.length < currentText.length) {
+          setDisplayedText(currentText.slice(0, displayedText.length + 1));
+        } else {
+          setTimeout(() => setIsDeleting(true), 3000); // Tăng thời gian hiển thị
+        }
+      } else {
+        if (displayedText.length > 0) {
+          setDisplayedText(displayedText.slice(0, -1));
+        } else {
+          setIsDeleting(false);
+          setCurrentIndex((prev) => (prev + 1) % texts.length);
+        }
+      }
+    }, isDeleting ? 30 : 80); // Tăng tốc độ gõ và xóa
+
+    return () => clearTimeout(timeout);
+  }, [displayedText, currentIndex, isDeleting]);
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -33,7 +68,7 @@ const Hero = () => {
             <div className="flex justify-center mb-8">
               <Avatar
                 src="/avatar.png"
-                alt="Tra Hoang Trong"
+                alt="Hoàng Trọng Trà"
                 size="2xl"
                 fallback="HT"
                 className="ring-4 ring-white/20 shadow-2xl hover:scale-105 transition-transform duration-300"
@@ -42,11 +77,14 @@ const Hero = () => {
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                Tra Hoang Trong 
+                Hoàng Trọng Trà 
               </span>
             </h1>
-            <h2 className="text-2xl md:text-3xl text-muted-foreground mb-8">
-              Full Stack Developer
+            <h2 className="text-2xl md:text-3xl text-muted-foreground mb-8 min-h-[3rem] flex items-center justify-center">
+              <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent font-medium">
+                {displayedText}
+              </span>
+              <span className="animate-pulse text-blue-500 ml-1 font-bold text-2xl md:text-3xl opacity-80 animate-blink">|</span>
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Passionate about creating beautiful, functional web applications that solve real-world problems. 

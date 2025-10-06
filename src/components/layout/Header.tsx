@@ -61,7 +61,7 @@ const Header = () => {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/trahoangdev', label: 'GitHub' },
     { icon: Linkedin, href: 'https://linkedin.com/in/trahoangdev', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:contact@trahoangdev', label: 'Email' },
+    { icon: Mail, href: 'mailto: trahoangdev@gmail.com', label: 'Email' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -103,10 +103,17 @@ const Header = () => {
             <div className="flex items-center">
               <a 
                 href="#" 
-                className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-200"
+                className="flex items-center hover:scale-105 transition-transform duration-200"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               >
-                trahoangdev
+                <img 
+                  src="/logo/logo.png" 
+                  alt="trahoangdev logo" 
+                  className="h-10 w-10 object-contain"
+                />
+                <span className="ml-3 text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                  trahoangdev
+                </span>
               </a>
             </div>
 
@@ -184,7 +191,16 @@ const Header = () => {
             <div className="flex flex-col h-full bg-card">
               {/* Header with close button */}
               <div className="flex items-center justify-between p-6 border-b border-border bg-card">
-                <span className="text-xl font-semibold text-foreground">Menu</span>
+                <div className="flex items-center space-x-3">
+                  <img 
+                    src="/logo/logo.png" 
+                    alt="trahoangdev logo" 
+                    className="h-6 w-6 object-contain"
+                  />
+                  <span className="text-lg font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                    trahoangdev
+                  </span>
+                </div>
                 <button
                   onClick={() => setIsMenuOpen(false)}
                   className="p-2 rounded-lg hover:bg-muted transition-colors duration-200"

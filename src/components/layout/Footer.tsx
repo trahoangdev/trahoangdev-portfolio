@@ -7,7 +7,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/trahoangdev', label: 'GitHub' },
     { icon: Linkedin, href: 'https://linkedin.com/in/trahoangdev', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:contact@trahoangdev', label: 'Email' }
+    { icon: Mail, href: 'mailto:trahoangdev@gmail.com', label: 'Email' }
   ];
 
   return (
@@ -16,9 +16,16 @@ const Footer = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent mb-2">
-                trahoangdev
-              </h3>
+              <div className="flex items-center mb-2">
+                <img 
+                  src="/logo/logo.png" 
+                  alt="trahoangdev logo" 
+                  className="h-8 w-8 object-contain mr-3"
+                />
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                  trahoangdev
+                </h3>
+              </div>
               <p className="text-muted-foreground">
                 Building digital experiences with passion and precision
               </p>

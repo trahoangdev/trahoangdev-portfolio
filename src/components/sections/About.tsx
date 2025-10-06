@@ -37,7 +37,7 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <p className="text-lg leading-relaxed text-muted-foreground">
-                Hello! I'm Tra, a full-stack developer based in Ho Chi Minh City, Vietnam. I enjoy creating things that 
+                Hello! I'm Trà, a full-stack developer based in Ho Chi Minh City, Vietnam. I enjoy creating things that 
                 live on the internet, whether that be websites, applications, or anything in between.
               </p>
               <p className="text-lg leading-relaxed text-muted-foreground">
