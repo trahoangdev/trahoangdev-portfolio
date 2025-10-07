@@ -219,6 +219,50 @@ export const projectDetails: ProjectDetail[] = [
     status: 'completed',
     startDate: '2025-10-07',
     endDate: '2025-10-31'
+  },
+  {
+    id: 6,
+    title: 'Landing Page for Sukaku Music',
+    shortDescription: 'A responsive landing page for Sukaku Music built with React.js and Tailwind CSS, featuring dark mode and animations.',
+    longDescription: 'A modern, responsive portfolio website showcasing my work and skills. Built with React, TypeScript, and Tailwind CSS, it features a sophisticated theme system, smooth animations, and optimized performance. The site includes interactive project showcases, contact forms, and a mobile-first design approach.',
+    image: '/images/project-6.png',
+    screenshots: [
+      '/images/project-6-1.png',
+      '/images/project-6-2.png','/images/project-6-3.png'
+    ],
+    technologies: ['React.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite', 'shadcn/ui'],
+    category: 'frontend',
+    github: 'https://github.com/trahoangdev/sukaku-music',
+    live: 'https://sukakumusic.netlify.app/',
+    features: [
+      'Responsive design for all devices',
+      'Smooth animations and transitions',
+      'Interactive project showcase',
+      'Contact form with validation',
+      'SEO optimization',
+      'Performance optimization',
+      'Accessibility: ARIA labels, Keyboard navigation',
+      'Lazy Loading,',
+      'Error Handling'
+    ],
+    challenges: [
+      'Creating smooth theme transitions',
+      'Optimizing performance for mobile devices',
+      'Implementing complex animations',
+      'Ensuring accessibility compliance'
+    ],
+    solutions: [
+      'Used CSS custom properties for theme switching',
+      'Implemented lazy loading and code splitting',
+      'Leveraged Framer Motion for smooth animations',
+      'Followed WCAG guidelines and ARIA standards'
+    ],
+    duration: '2 weeks',
+    teamSize: 1,
+    role: 'Frontend Developer',
+    status: 'completed',
+    startDate: '2025-10-07',
+    endDate: '2025-10-14'
   }
 ];
 
