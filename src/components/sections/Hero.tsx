@@ -53,19 +53,19 @@ const Hero = () => {
       
       {/* Animated background elements - adaptive to theme */}
       <div className="absolute inset-0">
-        <div className={`absolute top-1/4 left-1/4 w-72 h-72 rounded-full blur-3xl animate-pulse ${
+        <div className={`absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 rounded-full blur-3xl animate-pulse ${
           currentTheme === 'dark' ? 'bg-blue-500/10' : 'bg-blue-500/20'
         }`}></div>
-        <div className={`absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl animate-pulse delay-1000 ${
+        <div className={`absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full blur-3xl animate-pulse delay-1000 ${
           currentTheme === 'dark' ? 'bg-purple-500/10' : 'bg-purple-500/20'
         }`}></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-8">
         <div className="text-center max-w-4xl mx-auto">
           <div className="mb-8 animate-fade-in">
             {/* Avatar */}
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center mb-8 p-2">
               <Avatar
                 src="/avatar.png"
                 alt="Hoàng Trọng Trà"
@@ -75,34 +75,34 @@ const Hero = () => {
               />
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                 Hoàng Trọng Trà 
               </span>
             </h1>
-            <h2 className="text-2xl md:text-3xl text-muted-foreground mb-8 min-h-[3rem] flex items-center justify-center">
+            <h2 className="text-lg xs:text-xl sm:text-2xl md:text-3xl text-muted-foreground mb-6 sm:mb-8 min-h-[2.5rem] sm:min-h-[3rem] flex items-center justify-center">
               <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent font-medium">
                 {displayedText}
               </span>
-              <span className="animate-pulse text-blue-500 ml-1 font-bold text-2xl md:text-3xl opacity-80 animate-blink">|</span>
+              <span className="animate-pulse text-blue-500 ml-1 font-bold text-lg xs:text-xl sm:text-2xl md:text-3xl opacity-80">|</span>
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
               Passionate about creating beautiful, functional web applications that solve real-world problems. 
               I blend creativity with technical expertise to build exceptional digital experiences.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in">
-            <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300">
-              <a href="#projects" className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16 animate-fade-in px-4 sm:px-0">
+            <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 sm:px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300">
+              <a href="#projects" className="flex items-center justify-center gap-2">
                 View My Work
-                <ArrowDown size={20} />
+                <ArrowDown size={18} className="sm:w-5 sm:h-5" />
               </a>
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
-              className="px-8 py-3 border-2 hover:bg-muted/50 transition-all duration-300"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 border-2 hover:bg-muted/50 transition-all duration-300"
               asChild
             >
               <a 
@@ -110,18 +110,18 @@ const Hero = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 download="Hoang_Trong_Tra_CV.pdf"
-                className="flex items-center gap-2"
+                className="flex items-center justify-center gap-2"
               >
-                <Download size={20} />
+                <Download size={18} className="sm:w-5 sm:h-5" />
                 Download CV
               </a>
             </Button>
           </div>
 
           {/* Tech stack preview */}
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground animate-fade-in">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground animate-fade-in px-4 sm:px-0">
             {['React', 'TypeScript', 'Node.js', 'Python', 'AWS', 'PostgreSQL'].map((tech) => (
-              <span key={tech} className="px-3 py-1 bg-muted/50 backdrop-blur-sm rounded-full hover:bg-muted transition-all duration-300 border border-border/50">
+              <span key={tech} className="px-2 sm:px-3 py-1 bg-muted/50 backdrop-blur-sm rounded-full hover:bg-muted transition-all duration-300 border border-border/50">
                 {tech}
               </span>
             ))}

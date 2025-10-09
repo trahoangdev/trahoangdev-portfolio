@@ -109,9 +109,9 @@ const Header = () => {
                 <img 
                   src="/logo/logo.png" 
                   alt="trahoangdev logo" 
-                  className="h-10 w-10 object-contain"
+                  className="h-8 w-8 sm:h-10 sm:w-10 object-contain"
                 />
-                <span className="ml-3 text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                <span className="ml-2 sm:ml-3 text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent hidden xs:block">
                   trahoangdev
                 </span>
               </a>
@@ -187,17 +187,17 @@ const Header = () => {
           />
           
           {/* Menu Content */}
-          <div className="absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-card border-l border-border shadow-2xl">
+          <div className="absolute top-0 right-0 h-full w-72 xs:w-80 max-w-[90vw] bg-card border-l border-border shadow-2xl">
             <div className="flex flex-col h-full bg-card">
               {/* Header with close button */}
-              <div className="flex items-center justify-between p-6 border-b border-border bg-card">
-                <div className="flex items-center space-x-3">
+              <div className="flex items-center justify-between p-4 sm:p-6 border-b border-border bg-card">
+                <div className="flex items-center space-x-2 sm:space-x-3">
                   <img 
                     src="/logo/logo.png" 
                     alt="trahoangdev logo" 
-                    className="h-6 w-6 object-contain"
+                    className="h-5 w-5 sm:h-6 sm:w-6 object-contain"
                   />
-                  <span className="text-lg font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                  <span className="text-base sm:text-lg font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
                     trahoangdev
                   </span>
                 </div>
@@ -212,7 +212,7 @@ const Header = () => {
 
               {/* Scrollable content */}
               <div className="flex-1 overflow-y-auto">
-                <div className="p-6 space-y-8">
+                <div className="p-4 sm:p-6 space-y-6 sm:space-y-8">
                   {/* Mobile Navigation Links */}
                   <nav className="space-y-3">
                     <span className="text-sm font-medium text-muted-foreground uppercase tracking-wide">Navigation</span>
@@ -220,7 +220,7 @@ const Header = () => {
                       <a
                         key={item.name}
                         href={item.href}
-                        className="block text-lg font-medium text-foreground hover:text-primary transition-all duration-300 py-4 px-4 rounded-lg hover:bg-muted/50 border border-transparent hover:border-border"
+                        className="block text-base sm:text-lg font-medium text-foreground hover:text-primary transition-all duration-300 py-3 sm:py-4 px-3 sm:px-4 rounded-lg hover:bg-muted/50 border border-transparent hover:border-border"
                         onClick={(e) => {
                           e.preventDefault();
                           handleNavClick(item.href);
@@ -332,7 +332,7 @@ const Header = () => {
               </div>
 
               {/* Fixed bottom section */}
-              <div className="p-6 border-t border-border bg-card">
+              <div className="p-4 sm:p-6 border-t border-border bg-card">
                 {/* Quick Actions */}
                 <div className="space-y-3">
                   <Button 

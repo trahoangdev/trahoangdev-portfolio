@@ -52,35 +52,36 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-muted/30">
+    <section id="projects" className="py-12 sm:py-16 lg:py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
               Featured Projects
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
               A showcase of my recent work and contributions
             </p>
           </div>
 
           {/* Filter buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-4 sm:px-0">
             {categories.map((category) => (
               <Button
                 key={category.id}
                 variant={filter === category.id ? 'default' : 'outline'}
                 onClick={() => setFilter(category.id)}
-                className="flex items-center gap-2"
+                className="flex items-center gap-2 text-xs sm:text-sm px-3 sm:px-4 py-2"
               >
-                <Filter size={16} />
-                {category.name}
+                <Filter size={14} className="sm:w-4 sm:h-4" />
+                <span className="hidden xs:inline">{category.name}</span>
+                <span className="xs:hidden">{category.name.split(' ')[0]}</span>
               </Button>
             ))}
           </div>
 
           {/* Projects grid */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             {filteredProjects.map((project) => (
               <Card key={project.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group">
                 <CardHeader className="p-0">

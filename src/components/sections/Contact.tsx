@@ -102,43 +102,43 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
               Get In Touch
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4 sm:px-0">
               Let's discuss your next project or just say hello
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
             {/* Contact Information */}
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               <div>
-                <h3 className="text-2xl font-semibold mb-6">Let's talk about your project</h3>
-                <p className="text-muted-foreground mb-8 leading-relaxed">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">Let's talk about your project</h3>
+                <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
                   I'm always interested in new opportunities and exciting projects. 
                   Whether you have a question or just want to say hi, I'll try my best to get back to you!
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-center space-x-4">
-                    <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-3 rounded-lg">
-                      <info.icon className="w-6 h-6 text-white" />
+                  <div key={index} className="flex items-center space-x-3 sm:space-x-4">
+                    <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 sm:p-3 rounded-lg flex-shrink-0">
+                      <info.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-medium">{info.title}</h4>
+                      <h4 className="font-medium text-sm sm:text-base">{info.title}</h4>
                       {info.href ? (
-                        <a href={info.href} className="text-muted-foreground hover:text-primary transition-colors">
+                        <a href={info.href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors break-all">
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-muted-foreground">{info.value}</p>
+                        <p className="text-xs sm:text-sm text-muted-foreground">{info.value}</p>
                       )}
                     </div>
                   </div>

@@ -69,13 +69,13 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
           )}
         </div>
         
-        {/* Online Status Indicator */}
-        <div className="absolute -bottom-1 -right-1">
+        {/* Online Status Indicator - Responsive sizing */}
+        <div className="absolute -bottom-0.5 -right-0.5 sm:-bottom-1 sm:-right-1">
           <div className="relative">
             {/* Outer pulsing ring */}
-            <div className="absolute inset-0 w-4 h-4 bg-green-400 rounded-full animate-ping opacity-75"></div>
+            <div className="absolute inset-0 w-3 h-3 sm:w-4 sm:h-4 bg-green-400 rounded-full animate-ping opacity-75"></div>
             {/* Inner solid dot */}
-            <div className="relative w-4 h-4 bg-green-500 rounded-full border-2 border-white shadow-sm"></div>
+            <div className="relative w-3 h-3 sm:w-4 sm:h-4 bg-green-500 rounded-full border border-white shadow-sm"></div>
           </div>
         </div>
         
