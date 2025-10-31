@@ -12,7 +12,6 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showThemeSection, setShowThemeSection] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('');
-  const [scrollProgress, setScrollProgress] = useState(0);
   const headerRef = useRef<HTMLElement>(null);
   const { setTheme, theme } = useTheme();
 
@@ -31,15 +30,6 @@ const Header = () => {
       rafId = requestAnimationFrame(() => {
         const scrollY = window.scrollY;
         setIsScrolled(scrollY > 20);
-        
-        // Calculate scroll progress
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
-        const scrollableHeight = documentHeight - windowHeight;
-        const progress = scrollableHeight > 0 
-          ? Math.min(100, (scrollY / scrollableHeight) * 100) 
-          : 0;
-        setScrollProgress(progress);
         
         // Track active section
         const sections = ['about', 'skills', 'projects', 'contact'];
@@ -177,18 +167,6 @@ const Header = () => {
             : "bg-background/80 backdrop-blur-md border-b border-border/50"
         )}
       >
-        {/* Progress bar */}
-        {isScrolled && (
-          <div 
-            className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 origin-left transition-all duration-300 ease-out"
-            style={{
-              width: `${scrollProgress}%`,
-              boxShadow: '0 0 10px rgba(59, 130, 246, 0.5)'
-            }}
-            aria-hidden="true"
-          />
-        )}
-        
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
