@@ -23,22 +23,27 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // Split vendor chunks for better caching
+          // Don't split React to avoid context issues
           if (id.includes('node_modules')) {
-            // React and React DOM must be in the same chunk to avoid context issues
-            if (id.includes('react/') || id.includes('react-dom/') || id.includes('scheduler/')) {
-              return 'vendor-react';
+            // Keep React, React-DOM, and scheduler together and inline in main chunk
+            if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {
+              return undefined; // Don't create separate chunk for React
             }
             // Radix UI components
             if (id.includes('@radix-ui')) {
               return 'vendor-radix';
             }
-            // Other large libraries
+            // React Query
             if (id.includes('@tanstack') || id.includes('react-query')) {
               return 'vendor-query';
             }
+            // Framer Motion
             if (id.includes('framer-motion')) {
               return 'vendor-motion';
+            }
+            // Router
+            if (id.includes('react-router')) {
+              return 'vendor-router';
             }
             // All other node_modules
             return 'vendor';
@@ -53,5 +58,9 @@ export default defineConfig(({ mode }) => ({
       include: [/node_modules/],
       transformMixedEsModules: true
     },
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react/jsx-runtime'],
+    exclude: []
   },
 }));
