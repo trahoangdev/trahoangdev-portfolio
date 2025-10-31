@@ -22,7 +22,28 @@ export default defineConfig(({ mode }) => ({
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        manualChunks: (id) => {
+          // Split vendor chunks for better caching
+          if (id.includes('node_modules')) {
+            // React and React DOM
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor-react';
+            }
+            // Radix UI components
+            if (id.includes('@radix-ui')) {
+              return 'vendor-radix';
+            }
+            // Other large libraries
+            if (id.includes('@tanstack') || id.includes('react-query')) {
+              return 'vendor-query';
+            }
+            if (id.includes('framer-motion')) {
+              return 'vendor-motion';
+            }
+            // All other node_modules
+            return 'vendor';
+          }
+        },
         entryFileNames: 'assets/[name]-[hash].js',
         chunkFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash].[ext]'

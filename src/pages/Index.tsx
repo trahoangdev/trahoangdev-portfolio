@@ -1,24 +1,51 @@
 
+import { Suspense, lazy } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import Hero from '@/components/sections/Hero';
-import About from '@/components/sections/About';
-import Skills from '@/components/sections/Skills';
-import Projects from '@/components/sections/Projects';
-import Contact from '@/components/sections/Contact';
 import { BackToTop } from '@/components/ui/back-to-top';
+import { AnimatedGrid } from '@/components/ui/animated-grid';
+import { SkipLink } from '@/components/ui/skip-link';
+import { StructuredData } from '@/components/StructuredData';
+import { Loader2 } from 'lucide-react';
+
+// Lazy load sections - Hero loads immediately, others on scroll
+const Hero = lazy(() => import('@/components/sections/Hero'));
+const About = lazy(() => import('@/components/sections/About'));
+const Skills = lazy(() => import('@/components/sections/Skills'));
+const Projects = lazy(() => import('@/components/sections/Projects'));
+const Contact = lazy(() => import('@/components/sections/Contact'));
+
+// Loading fallback component
+const SectionLoader = () => (
+  <div className="flex items-center justify-center min-h-[400px]" role="status" aria-label="Loading content">
+    <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" aria-hidden="true" />
+  </div>
+);
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <StructuredData />
+      <SkipLink />
+      <AnimatedGrid />
       <Header />
       
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
+      <main id="main-content" tabIndex={-1}>
+        <Suspense fallback={<SectionLoader />}>
+          <Hero />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <About />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <Skills />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <Projects />
+        </Suspense>
+        <Suspense fallback={<SectionLoader />}>
+          <Contact />
+        </Suspense>
       </main>
       
       <Footer />

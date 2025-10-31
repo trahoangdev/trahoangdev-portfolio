@@ -5,6 +5,18 @@ import { ChevronUp } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
+// Debounce utility
+function debounce<T extends (...args: any[]) => void>(
+  func: T,
+  wait: number
+): (...args: Parameters<T>) => void {
+  let timeout: NodeJS.Timeout | null = null;
+  return (...args: Parameters<T>) => {
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), wait);
+  };
+}
+
 export function BackToTop() {
   const [isVisible, setIsVisible] = useState(false)
 
@@ -17,8 +29,11 @@ export function BackToTop() {
       }
     }
 
-    window.addEventListener('scroll', toggleVisibility)
-    return () => window.removeEventListener('scroll', toggleVisibility)
+    // Debounce scroll handler for better performance
+    const debouncedToggleVisibility = debounce(toggleVisibility, 100)
+
+    window.addEventListener('scroll', debouncedToggleVisibility, { passive: true })
+    return () => window.removeEventListener('scroll', debouncedToggleVisibility)
   }, [])
 
   const scrollToTop = () => {

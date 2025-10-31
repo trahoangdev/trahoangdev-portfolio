@@ -175,7 +175,7 @@ export const projectDetails: ProjectDetail[] = [
     startDate: '2025-04-22',
     endDate: '2025-06-25'
   },
-  {
+  /*{
     id: 5,
     title: 'Landing Page for Zen Tea',
     shortDescription: 'A responsive landing page for Zen Tea built with React.js and Tailwind CSS, featuring dark mode and animations.',
@@ -219,7 +219,7 @@ export const projectDetails: ProjectDetail[] = [
     status: 'completed',
     startDate: '2025-10-07',
     endDate: '2025-10-31'
-  },
+  },*/
   {
     id: 6,
     title: 'Landing Page for Sukaku Music',

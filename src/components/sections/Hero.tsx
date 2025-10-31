@@ -3,63 +3,47 @@ import { ArrowDown, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar } from '@/components/ui/avatar';
 import { useCurrentTheme } from '@/hooks/use-theme';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, memo } from 'react';
 
-const Hero = () => {
+const TEXTS = [
+  'Full Stack Developer',
+  'React Specialist',
+  'TypeScript Expert',
+  'UI/UX Enthusiast',
+  'Problem Solver'
+] as const;
+
+const Hero = memo(() => {
   const currentTheme = useCurrentTheme();
   const [displayedText, setDisplayedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
+  const currentText = useMemo(() => TEXTS[currentIndex], [currentIndex]);
+
   useEffect(() => {
-    const texts = [
-      'Full Stack Developer',
-      'React Specialist',
-      'TypeScript Expert',
-      'UI/UX Enthusiast',
-      'Problem Solver'
-    ];
-    
-    const currentText = texts[currentIndex];
-    
     const timeout = setTimeout(() => {
       if (!isDeleting) {
         if (displayedText.length < currentText.length) {
           setDisplayedText(currentText.slice(0, displayedText.length + 1));
         } else {
-          setTimeout(() => setIsDeleting(true), 3000); // Tăng thời gian hiển thị
+          setTimeout(() => setIsDeleting(true), 3000);
         }
       } else {
         if (displayedText.length > 0) {
           setDisplayedText(displayedText.slice(0, -1));
         } else {
           setIsDeleting(false);
-          setCurrentIndex((prev) => (prev + 1) % texts.length);
+          setCurrentIndex((prev) => (prev + 1) % TEXTS.length);
         }
       }
-    }, isDeleting ? 30 : 80); // Tăng tốc độ gõ và xóa
+    }, isDeleting ? 30 : 80);
 
     return () => clearTimeout(timeout);
-  }, [displayedText, currentIndex, isDeleting]);
+  }, [displayedText, currentText, isDeleting]);
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background gradient - adaptive to theme */}
-      <div className={`absolute inset-0 ${
-        currentTheme === 'dark' 
-          ? 'bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-pink-900/20' 
-          : 'bg-gradient-to-br from-blue-500/10 via-purple-500/10 to-pink-500/10'
-      }`}></div>
-      
-      {/* Animated background elements - adaptive to theme */}
-      <div className="absolute inset-0">
-        <div className={`absolute top-1/4 left-1/4 w-48 h-48 sm:w-72 sm:h-72 rounded-full blur-3xl animate-pulse ${
-          currentTheme === 'dark' ? 'bg-blue-500/10' : 'bg-blue-500/20'
-        }`}></div>
-        <div className={`absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 rounded-full blur-3xl animate-pulse delay-1000 ${
-          currentTheme === 'dark' ? 'bg-purple-500/10' : 'bg-purple-500/20'
-        }`}></div>
-      </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-8">
         <div className="text-center max-w-4xl mx-auto">
@@ -135,6 +119,8 @@ const Hero = () => {
       </div>
     </section>
   );
-};
+});
+
+Hero.displayName = 'Hero';
 
 export default Hero;
