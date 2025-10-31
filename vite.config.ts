@@ -25,8 +25,8 @@ export default defineConfig(({ mode }) => ({
         manualChunks: (id) => {
           // Split vendor chunks for better caching
           if (id.includes('node_modules')) {
-            // React and React DOM
-            if (id.includes('react') || id.includes('react-dom')) {
+            // React and React DOM must be in the same chunk to avoid context issues
+            if (id.includes('react/') || id.includes('react-dom/') || id.includes('scheduler/')) {
               return 'vendor-react';
             }
             // Radix UI components
@@ -48,6 +48,10 @@ export default defineConfig(({ mode }) => ({
         chunkFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash].[ext]'
       },
+    },
+    commonjsOptions: {
+      include: [/node_modules/],
+      transformMixedEsModules: true
     },
   },
 }));
